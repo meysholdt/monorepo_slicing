@@ -18,13 +18,17 @@ tasks:
     command: |
       if [ "$TEAM" == "a" ]; then
           code -a shared
+          sleep 1
           code -a team-a
       elif [ "$TEAM" == "b" ]; then
           code -a shared
+          sleep 1
           code -a team-a
       else
           code -a shared
+          sleep 1
           code -a team-a
+          sleep 1
           code -a team-b
       fi
 
