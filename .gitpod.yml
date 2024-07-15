@@ -5,20 +5,26 @@ tasks:
       # if no team is selected, we built all.
 
       if [ "$TEAM" == "a" ]; then
-          code -a shared
-          code -a team-a
           ./shared/build.sh
           ./team-a/build.sh
       elif [ "$TEAM" == "b" ]; then
-          code -a shared
-          code -a team-a
           ./shared/build.sh
           ./team-b/build.sh
       else
-          code -a shared
-          code -a team-a
-          code -a team-b
           ./shared/build.sh
           ./team-a/build.sh
           ./team-b/build.sh
       fi
+    command: |
+      if [ "$TEAM" == "a" ]; then
+          code -a shared
+          code -a team-a
+      elif [ "$TEAM" == "b" ]; then
+          code -a shared
+          code -a team-a
+      else
+          code -a shared
+          code -a team-a
+          code -a team-b
+      fi
+
