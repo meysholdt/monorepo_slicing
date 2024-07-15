@@ -1,3 +1,4 @@
+workspaceLocation: monorepo_slicing/ws.code-workspace
 tasks:
   - init: |
       # if a $TEAM is set, we "active" the team's VS Code Configuration by copying it to ws.code-workspace
