@@ -1,0 +1,12 @@
+tasks:
+  - init: |
+      # Check the value of the FEATURE variable
+      if [ "$FEATURE" == "foo" ]; then
+          echo "Building feature foo"
+          echo "Example file created by build foo" > foo.log
+      elif [ "$FEATURE" == "bar" ]; then
+          echo "second"
+          echo "Example file created by build bar" > bar.log
+      else
+          echo "FEATURE is neither 'foo' nor 'bar'"
+      fi
