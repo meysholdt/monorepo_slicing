@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "/workspace/monorepo_slicing/shared"
+		},
+		{
+			"path": "/workspace/monorepo_slicing/team-b"
+		}
+	],
+	"settings": {}
+}

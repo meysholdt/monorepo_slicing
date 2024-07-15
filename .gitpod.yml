@@ -1,12 +1,20 @@
 tasks:
   - init: |
-      # Check the value of the FEATURE variable
-      if [ "$FEATURE" == "foo" ]; then
-          echo "Building feature foo"
-          echo "Example file created by build foo" > foo.log
-      elif [ "$FEATURE" == "bar" ]; then
-          echo "second"
-          echo "Example file created by build bar" > bar.log
+      # if a $TEAM is set, we "active" the team's VS Code Configuration by copying it to ws.code-workspace
+      # We only build the select team's and the "shared" project
+      # if no team is selected, we built all.
+
+      if [ "$TEAM" == "a" ]; then
+          cp -f team-a/team-a.code-workspace ws.code-workspace
+          ./shared/build.sh
+          ./team-a/build.sh
+      elif [ "$TEAM" == "b" ]; then
+          ./shared/build.sh
+          ./team-b/build.sh
+          cp -f team-b/team-b.code-workspace ws.code-workspace
       else
-          echo "FEATURE is neither 'foo' nor 'bar'"
+          cp -f all.code-workspace ws.code-workspace
+          ./shared/build.sh
+          ./team-a/build.sh
+          ./team-b/build.sh
       fi
